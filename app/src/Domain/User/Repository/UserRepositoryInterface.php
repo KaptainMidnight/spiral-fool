@@ -12,5 +12,5 @@ interface UserRepositoryInterface
     /**
      * @throws UserNotFoundException
      */
-    public function getById(int $id): User;
+    public function getByTelegramId(int $id): User;
 }

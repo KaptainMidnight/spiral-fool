@@ -15,9 +15,9 @@ use App\Domain\User\Repository\UserRepositoryInterface;
  */
 final class CycleORMUserRepository extends Repository implements UserRepositoryInterface
 {
-    public function getById(int $id): User
+    public function getByTelegramId(int $id): User
     {
-        $user = $this->findByPK($id);
+        $user = $this->findOne(['telegram' => $id]);
 
         if ($user === null) {
             throw new UserNotFoundException();

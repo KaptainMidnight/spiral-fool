@@ -8,20 +8,17 @@ use App\Infrastructure\Persistence\CycleORMUserRepository;
 use Cycle\Annotated\Annotation\Column;
 use Cycle\Annotated\Annotation\Entity;
 
-#[Entity(
-    repository: CycleORMUserRepository::class,
-)]
+#[Entity(repository: CycleORMUserRepository::class)]
 class User
 {
-    /** @psalm-suppress PropertyNotSetInConstructor */
     #[Column(type: 'primary')]
     private int $id;
 
     public function __construct(
+        #[Column(type: 'integer')]
+        private readonly int $telegram,
         #[Column(type: 'string')]
-        private string $username,
-        #[Column(type: 'string')]
-        private string $email,
+        private readonly string $username,
     ) {
     }
 
@@ -35,8 +32,8 @@ class User
         return $this->username;
     }
 
-    public function getEmail(): string
+    public function getTelegram(): int
     {
-        return $this->email;
+        return $this->telegram;
     }
 }
