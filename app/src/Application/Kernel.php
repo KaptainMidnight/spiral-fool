@@ -9,6 +9,7 @@ use Spiral\Bootloader as Framework;
 use Spiral\Bootloader\Http\HttpBootloader;
 use Spiral\Cache\Bootloader\CacheBootloader;
 use Spiral\Cycle\Bootloader as CycleBridge;
+use Spiral\DatabaseSeeder\Bootloader\DatabaseSeederBootloader;
 use Spiral\DataGrid\Bootloader\GridBootloader;
 use Spiral\Debug\Bootloader\DumperBootloader;
 use Spiral\DotEnv\Bootloader\DotenvBootloader;
@@ -121,6 +122,9 @@ class Kernel extends \Spiral\Framework\Kernel
 
             // Fast code prototyping
             PrototypeBootloader::class,
+
+            // Database seeder
+            DatabaseSeederBootloader::class,
 
             // Configure route groups, middleware for route groups
             Bootloader\RoutesBootloader::class,
